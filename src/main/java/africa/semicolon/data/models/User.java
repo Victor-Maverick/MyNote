@@ -17,6 +17,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private boolean isLoggedIn;
     private String password;
     @DBRef
     private List<Note> noteList = new ArrayList<>();

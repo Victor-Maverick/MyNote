@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
-public class MyNotesResponse {
+public class ApiResponse {
     private boolean isSuccessful;
     private Object data;
 }

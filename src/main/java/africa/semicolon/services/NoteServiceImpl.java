@@ -13,9 +13,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-import static africa.semicolon.utils.Mapper.map;
-import static africa.semicolon.utils.Mapper.mapNoteUpdateResponse;
+import static africa.semicolon.utils.MapUtils.map;
+import static africa.semicolon.utils.MapUtils.mapNoteUpdateResponse;
 
 @Service
 @AllArgsConstructor
@@ -58,6 +59,16 @@ public class NoteServiceImpl implements NoteService{
         DeleteNoteResponse response = new DeleteNoteResponse();
         response.setMessage("note deleted successfully");
         return response;
+    }
+
+    @Override
+    public List<Note> getAllNotes() {
+        return noteRepository.findAll();
+    }
+
+    @Override
+    public Note findNotesByTitle(String noteTitle) {
+        return noteRepository.findByTitle(noteTitle);
     }
 
     private Note findById(String id) {
